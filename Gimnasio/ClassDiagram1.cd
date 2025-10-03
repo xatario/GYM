@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Gimnasio.dsGimnasio" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.25" />
+    <NestedTypes>
+      <Class Name="Gimnasio.dsGimnasio.rpt_vwsociomembresia_pagoRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwultimamembresiadetalladaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwdetalleentradaviewRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.configuracionRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptvisitasRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.productoRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwdetalleentradaexistenteRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwsalidasDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwentradasRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.sociomembresiaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptmembresiasDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.salidaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.rptvisitasRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwsociomembresiasDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.detallesalidaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptinventarioDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.productoRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.membresiaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Gimnasio.dsGimnasio.sociomembresia_pagoRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwdetallesalidaviewRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwentradasRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwsociomembresiasRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwdetalleentradaexistenteRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwsociosRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.socioRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwproductosRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.membresiaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwsociosDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.detallesalidaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwsociomembresia_pagoRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwproductosDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwultimamembresiadetalladaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.sociomembresiaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Gimnasio.dsGimnasio.rptinventarioRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.rpt_vwsociomembresia_pagoDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwusuariosRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.rptventaproductosDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwusuariosDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.rptventaproductosRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwdetalleentradaviewDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptinventarioRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptmembresiasRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwproductosRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.sociomembresia_pagoRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.membresiaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.usuarioDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptmembresiasRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.productoRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwmembresiasDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.visitaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Gimnasio.dsGimnasio.vwsociomembresiasRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwusuariosRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.usuarioRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.usuarioRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwsociomembresiasRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.visitaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.configuracionDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.socioRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.sociomembresia_pagoRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.detalleentradaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwentradasRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rpt_vwsociomembresia_pagoRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.sociomembresia_pagoDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.entradaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.rptsociosRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.visitaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwdetallesalidaviewDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.sociomembresiaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptvisitasDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwsalidasRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwdetalleentradaexistenteDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwmembresiasRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwdetallesalidaviewRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.rptvisitasRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.configuracionRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwultimamembresiadetalladaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.salidaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptinventarioRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwdetallesalidaviewRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwmembresiasRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.detalleentradaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.visitaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwsociomembresia_pagoRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.socioDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.socioRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.productoDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptventaproductosRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.detalleentradaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.usuarioRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.salidaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwproductosRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwsociomembresia_pagoRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.detallesalidaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptsociosRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwdetalleentradaviewRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwentradasDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.detalleentradaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.rptsociosDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptventaproductosRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwsociosRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.rptsociosRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.configuracionRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Gimnasio.dsGimnasio.vwdetalleentradaexistenteRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Gimnasio.dsGimnasio.rpt_vwsociomembresia_pagoRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwsociomembresia_pagoDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.membresiaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.entradaRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwultimamembresiadetalladaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwmembresiasRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.salidaRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.vwdetalleentradaviewRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.vwsalidasRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwsociosRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwusuariosRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.vwsalidasRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Gimnasio.dsGimnasio.entradaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.entradaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Gimnasio.dsGimnasio.sociomembresiaDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Gimnasio.dsGimnasio.rptmembresiasRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Gimnasio.dsGimnasio.detallesalidaRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAETgKqZAwjPIm92lBcFcYjJAL5eQDwILLBSgQE2BNk=</HashCode>
+      <FileName>dsGimnasio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
