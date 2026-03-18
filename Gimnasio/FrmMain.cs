@@ -106,8 +106,37 @@ namespace Gimnasio
             }
 
             reader2.Close();
+            try
+            {
+                // Carpeta donde se guardarán los respaldos
+                string backupDir = Application.StartupPath + "\\Backups";
 
-            
+                // Crear carpeta si no existe
+                if (!System.IO.Directory.Exists(backupDir))
+                    System.IO.Directory.CreateDirectory(backupDir);
+
+                // Nombre del archivo con la fecha actual
+                string backupFile = $"{backupDir}\\backup_{DateTime.Now:yyyy-MM-dd}.sql";
+
+                // Si aún no existe el backup de hoy, se crea
+                if (!System.IO.File.Exists(backupFile))
+                {
+                    string constr = "server=localhost;User Id=root;Persist Security Info=True;database=gym";
+
+                    MySqlBackup mb = new MySqlBackup(constr);
+                    mb.ExportInfo.FileName = backupFile;
+                    mb.ExportInfo.ExportViews = false;
+                    mb.Export();
+
+                    Console.WriteLine("Copia de seguridad creada automáticamente: " + backupFile);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al crear la copia de seguridad automática: " + ex.Message);
+            }
+
+
         }
         /// <summary>
         /// metodo que abre la ventana de login

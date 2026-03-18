@@ -160,9 +160,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(22, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 20);
+            this.label4.Size = new System.Drawing.Size(47, 20);
             this.label4.TabIndex = 6;
-            this.label4.Text = "RFC";
+            this.label4.Text = "RUC";
             // 
             // label3
             // 

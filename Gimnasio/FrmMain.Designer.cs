@@ -731,6 +731,7 @@
             this.label7.Size = new System.Drawing.Size(40, 42);
             this.label7.TabIndex = 10;
             this.label7.Text = "0";
+            this.label7.Visible = false;
             // 
             // pictureBox4
             // 

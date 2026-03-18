@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -142,6 +143,35 @@ namespace Gimnasio.Socios
             throw new NotImplementedException();
         }
 
+        // dentro de la clase clsSocioMembresia (pega este método)
+        public bool UpdateFechaInicio(int idSocioMembresia, DateTime nuevaFechaInicio)
+        {
+            clear();
+            try
+            {
+                string sql = "UPDATE sociomembresia SET fechaInicioMembresia = @fecha WHERE idSocioMembresia = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conexionbd.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@fecha", nuevaFechaInicio);
+                cmd.Parameters.AddWithValue("@id", idSocioMembresia);
+
+                int filas = cmd.ExecuteNonQuery();
+
+                if (filas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    error.Add("No se actualizó ningún registro.");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                error.Add(ex.Message);
+                return false;
+            }
+        }
 
     }
 }

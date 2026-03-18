@@ -253,6 +253,17 @@ namespace Gimnasio.Registro
                     lblVencimiento.ForeColor = Color.Red;
                     MessageBox.Show("Se a términado tu membresia");
 
+                    using (MySqlConnection conn = conexionbd.ObtenerConexion())
+                    {
+                        string sql = @"INSERT INTO visita (idSocio, fechaCreacion, estado) 
+                                     VALUES (@idSocio, @fecha, @estado)";
+
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@idSocio", oRegistro.datos.idSocio);
+                        cmd.Parameters.AddWithValue("@fecha", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@estado", 0); // 0 = VENCIDA
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 //si no se a vencido la registramos REGISTRO
                 else

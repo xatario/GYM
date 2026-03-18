@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Gimnasio.Socios;
 
 namespace Gimnasio.Reportes
 {
@@ -28,7 +29,10 @@ namespace Gimnasio.Reportes
             CargarDatosAutocompletado();
 
             button16_Click(this, EventArgs.Empty);
-           
+
+            dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
+
+
         }
 
 
@@ -452,14 +456,39 @@ namespace Gimnasio.Reportes
             }
             else
             {
-                // No se encontraron resultados, puedes manejar esta situación según tus necesidades
+                // No se encontraron resultados
                 textBox1.Text = "No se encontraron resultados.";
             }
 
             int vencimiento = int.Parse(textBox1.Text);
 
+            // 🔹 Agregamos idSocio al final del SELECT
+            string sql2 = @"
+            SELECT 
+              DATE(DATE_ADD(sm.fechaInicioMembresia, INTERVAL m.meses MONTH)) AS `DATE(Vencimiento)`,
+              s.Nombre AS NombreSocio,
+              s.Paterno,
+              s.Materno,
+              s.clave,
+              m.Nombre AS NombreMembresia,
+              GROUP_CONCAT(DISTINCT p.observacion SEPARATOR '; ') AS Observaciones,
+              DATE(sm.fechaInicioMembresia) AS `DATE(fechaInicioMembresia)`,
+              m.Precio AS Precio,
+              IFNULL(SUM(p.importe), 0) AS Importe,
+              CASE 
+                  WHEN IFNULL(SUM(p.importe),0) >= m.Precio THEN 'Pagado'
+                  WHEN IFNULL(SUM(p.importe),0) > 0 AND IFNULL(SUM(p.importe),0) < m.Precio THEN 'Pago Parcial'
+                  ELSE 'Pendiente'
+              END AS EstadoPago,
+              s.idSocio
+            FROM sociomembresia sm
+            INNER JOIN socio s ON s.idSocio = sm.idSocio
+            INNER JOIN membresia m ON m.idMembresia = sm.idMembresia
+            LEFT JOIN sociomembresia_pago p ON p.idSocioMembresia = sm.idSocioMembresia
+            WHERE sm.idEstado = 1
+            GROUP BY sm.idSocioMembresia
+            ORDER BY `DATE(Vencimiento)` DESC;";
 
-            string sql2 = "SELECT DATE(Vencimiento),NombreSocio,Paterno,Materno,clave,NombreMembresia,Observaciones,DATE(fechaInicioMembresia) FROM `vwultimamembresiadetallada` WHERE idEstado = 1 ORDER BY Vencimiento DESC";
             MySqlCommand comando2 = new MySqlCommand(sql2, conexionbd.ObtenerConexion());
             MySqlDataAdapter DP = new MySqlDataAdapter(comando2);
 
@@ -479,21 +508,17 @@ namespace Gimnasio.Reportes
 
                     if (diasRestantes < 0)
                     {
-                        // Cambia el color de la fila a rojo
                         fila.DefaultCellStyle.BackColor = Color.Firebrick;
                         fila.DefaultCellStyle.ForeColor = Color.White;
                     }
-
-                    else if (diasRestantes < vencimiento )
+                    else if (diasRestantes < vencimiento)
                     {
-                        // Cambia el color de la fila a rojo
                         fila.DefaultCellStyle.BackColor = Color.LightYellow;
                         fila.DefaultCellStyle.ForeColor = Color.Black;
                     }
                 }
-
-
             }
+
             dataGridView2.Columns[0].HeaderText = "FECHA TERMINO";
             dataGridView2.Columns[1].HeaderText = "NOMBRE";
             dataGridView2.Columns[2].HeaderText = "PATERNO";
@@ -502,11 +527,16 @@ namespace Gimnasio.Reportes
             dataGridView2.Columns[5].HeaderText = "MEMBRESIA";
             dataGridView2.Columns[6].HeaderText = "OBSERVACIONES";
             dataGridView2.Columns[7].HeaderText = "FECHA INICIO";
+            dataGridView2.Columns[8].HeaderText = "PRECIO";
+            dataGridView2.Columns[9].HeaderText = "IMPORTE";
+            dataGridView2.Columns[10].HeaderText = "ESTADO PAGO";
+
+            // 🔹 idSocio no necesita encabezado visible
+            dataGridView2.Columns[11].Visible = false;
 
             dataGridView2.Rows.RemoveAt(0);
 
             // CONVIERTO TODO EL REGISTRO DEL DATAGRIDVIEW2 EN MAYUSCULAS
-
             for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
                 for (int j = 0; j < dataGridView2.Columns.Count; j++)
@@ -518,8 +548,23 @@ namespace Gimnasio.Reportes
                     }
                 }
             }
-
         }
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar que la fila seleccionada sea válida
+            if (e.RowIndex >= 0 && dataGridView2.Rows[e.RowIndex].Cells["idSocio"].Value != null)
+            {
+                // Obtener el idSocio de la fila seleccionada
+                int idSocio = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["idSocio"].Value);
+
+                // Crear una nueva instancia del formulario de membresía
+                FrmMembresia frm = new FrmMembresia(idSocio);
+
+                // Mostrar el formulario
+                frm.ShowDialog();
+            }
+        }
+
 
         private void button17_Click(object sender, EventArgs e)
         {

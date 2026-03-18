@@ -105,16 +105,17 @@ namespace Gimnasio.Configuracion
 
             if (!txtRFC.Text.Trim().Equals(""))
             {
-                if (!ExpresionesRegulares.RegEX.isRFC2(txtRFC.Text.Trim()))
+                if (!isRUCValido(txtRFC.Text.Trim()))
                 {
-                    MessageBox.Show("Si introduces un valor en rfc debe ser un rfc valido, en caso de que no requieras de este valor, dejalo en blanco");
+                    MessageBox.Show("El RUC ingresado no es válido. Debe tener 11 dígitos y empezar con 10 o 20.");
+                    txtRFC.Focus();
                     return;
                 }
             }
 
 
-            
-                oConfiguracion.NombreGimnacio = txtNombre.Text.Trim();
+
+            oConfiguracion.NombreGimnacio = txtNombre.Text.Trim();
                 oConfiguracion.Domicilio = txtDomicilio.Text.Trim();
                 oConfiguracion.Telefono = txtTelefono.Text.Trim();
                 if (pbLogo.Image!=null)
@@ -133,6 +134,33 @@ namespace Gimnasio.Configuracion
                     MessageBox.Show(oConfiguracion.getError());
                 }
 
+        }
+
+        /// <summary>
+        /// Valida que el RUC peruano tenga 11 dígitos y empiece con 10 (persona natural) o 20 (empresa)
+        /// </summary>
+        private bool isRUCValido(string ruc)
+        {
+            // Debe tener exactamente 11 dígitos numéricos
+            if (ruc.Length != 11) return false;
+            if (!System.Text.RegularExpressions.Regex.IsMatch(ruc, @"^\d{11}$")) return false;
+
+            // Debe empezar con 10 (persona natural) o 20 (empresa/persona jurídica)
+            string prefijo = ruc.Substring(0, 2);
+            if (prefijo != "10" && prefijo != "20") return false;
+
+            // Dígito verificador (algoritmo oficial SUNAT)
+            int[] factores = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
+            int suma = 0;
+            for (int i = 0; i < 10; i++)
+                suma += int.Parse(ruc[i].ToString()) * factores[i];
+
+            int resto = suma % 11;
+            int digitoVerificador = 11 - resto;
+            if (digitoVerificador == 10) digitoVerificador = 0;
+            if (digitoVerificador == 11) digitoVerificador = 1;
+
+            return digitoVerificador == int.Parse(ruc[10].ToString());
         }
 
         private void button2_Click(object sender, EventArgs e)

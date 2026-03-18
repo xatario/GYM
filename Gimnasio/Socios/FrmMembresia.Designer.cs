@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMembresia));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnEditarFecha = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -49,6 +50,9 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cboMembresia = new System.Windows.Forms.ComboBox();
+            this.membresiaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsGimnasio = new Gimnasio.dsGimnasio();
+            this.membresiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbFoto = new System.Windows.Forms.PictureBox();
@@ -59,23 +63,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.membresiaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsGimnasio = new Gimnasio.dsGimnasio();
-            this.membresiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vwmembresiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vwmembresiasTableAdapter = new Gimnasio.dsGimnasioTableAdapters.vwmembresiasTableAdapter();
             this.membresiaTableAdapter = new Gimnasio.dsGimnasioTableAdapters.membresiaTableAdapter();
+            this.btnHistorial = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membresiaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsGimnasio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membresiaBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwmembresiasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +91,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnHistorial);
+            this.splitContainer1.Panel1.Controls.Add(this.btnEditarFecha);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
@@ -101,6 +105,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(672, 625);
             this.splitContainer1.SplitterDistance = 425;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnEditarFecha
+            // 
+            this.btnEditarFecha.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnEditarFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarFecha.Location = new System.Drawing.Point(288, 395);
+            this.btnEditarFecha.Name = "btnEditarFecha";
+            this.btnEditarFecha.Size = new System.Drawing.Size(133, 27);
+            this.btnEditarFecha.TabIndex = 21;
+            this.btnEditarFecha.Text = "+ Editar Fecha";
+            this.btnEditarFecha.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -166,7 +182,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(326, 27);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
+            this.label5.Size = new System.Drawing.Size(75, 16);
             this.label5.TabIndex = 29;
             this.label5.Text = "Comienza";
             // 
@@ -189,7 +205,7 @@
             this.lblHoraFinal.ForeColor = System.Drawing.Color.Black;
             this.lblHoraFinal.Location = new System.Drawing.Point(324, 99);
             this.lblHoraFinal.Name = "lblHoraFinal";
-            this.lblHoraFinal.Size = new System.Drawing.Size(15, 16);
+            this.lblHoraFinal.Size = new System.Drawing.Size(14, 16);
             this.lblHoraFinal.TabIndex = 27;
             this.lblHoraFinal.Text = "h";
             // 
@@ -200,7 +216,7 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(231, 99);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 16);
+            this.label9.Size = new System.Drawing.Size(79, 16);
             this.label9.TabIndex = 28;
             this.label9.Text = "Hora Final";
             // 
@@ -211,7 +227,7 @@
             this.lblHoraInicial.ForeColor = System.Drawing.Color.Black;
             this.lblHoraInicial.Location = new System.Drawing.Point(324, 72);
             this.lblHoraInicial.Name = "lblHoraInicial";
-            this.lblHoraInicial.Size = new System.Drawing.Size(15, 16);
+            this.lblHoraInicial.Size = new System.Drawing.Size(14, 16);
             this.lblHoraInicial.TabIndex = 25;
             this.lblHoraInicial.Text = "h";
             // 
@@ -222,7 +238,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(231, 72);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 16);
+            this.label6.Size = new System.Drawing.Size(86, 16);
             this.label6.TabIndex = 26;
             this.label6.Text = "Hora Inicial";
             // 
@@ -233,7 +249,7 @@
             this.lblMeses.ForeColor = System.Drawing.Color.Black;
             this.lblMeses.Location = new System.Drawing.Point(112, 99);
             this.lblMeses.Name = "lblMeses";
-            this.lblMeses.Size = new System.Drawing.Size(49, 16);
+            this.lblMeses.Size = new System.Drawing.Size(48, 16);
             this.lblMeses.TabIndex = 24;
             this.lblMeses.Text = "Meses";
             // 
@@ -244,7 +260,7 @@
             this.label44.ForeColor = System.Drawing.Color.Black;
             this.label44.Location = new System.Drawing.Point(12, 99);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(54, 16);
+            this.label44.Size = new System.Drawing.Size(53, 16);
             this.label44.TabIndex = 23;
             this.label44.Text = "Meses";
             // 
@@ -255,7 +271,7 @@
             this.lblPrecio.ForeColor = System.Drawing.Color.Black;
             this.lblPrecio.Location = new System.Drawing.Point(112, 72);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(47, 16);
+            this.lblPrecio.Size = new System.Drawing.Size(46, 16);
             this.lblPrecio.TabIndex = 22;
             this.lblPrecio.Text = "Precio";
             // 
@@ -266,7 +282,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(13, 72);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 22;
             this.label4.Text = "Precio";
             // 
@@ -283,6 +299,21 @@
             this.cboMembresia.TabIndex = 11;
             this.cboMembresia.SelectedIndexChanged += new System.EventHandler(this.cboMembresia_SelectedIndexChanged);
             // 
+            // membresiaBindingSource1
+            // 
+            this.membresiaBindingSource1.DataMember = "membresia";
+            this.membresiaBindingSource1.DataSource = this.dsGimnasio;
+            // 
+            // dsGimnasio
+            // 
+            this.dsGimnasio.DataSetName = "dsGimnasio";
+            this.dsGimnasio.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // membresiaBindingSource
+            // 
+            this.membresiaBindingSource.DataMember = "membresia";
+            this.membresiaBindingSource.DataSource = this.dsGimnasio;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -290,7 +321,7 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(13, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 16);
+            this.label8.Size = new System.Drawing.Size(84, 16);
             this.label8.TabIndex = 10;
             this.label8.Text = "Membresia";
             // 
@@ -344,7 +375,7 @@
             this.lblTelefono.ForeColor = System.Drawing.Color.Black;
             this.lblTelefono.Location = new System.Drawing.Point(141, 71);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(57, 16);
+            this.lblTelefono.Size = new System.Drawing.Size(56, 16);
             this.lblTelefono.TabIndex = 19;
             this.lblTelefono.Text = "Nombre";
             // 
@@ -355,7 +386,7 @@
             this.lblNombre.ForeColor = System.Drawing.Color.Black;
             this.lblNombre.Location = new System.Drawing.Point(141, 36);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(57, 16);
+            this.lblNombre.Size = new System.Drawing.Size(56, 16);
             this.lblNombre.TabIndex = 18;
             this.lblNombre.Text = "Nombre";
             // 
@@ -366,7 +397,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(18, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 16);
+            this.label3.Size = new System.Drawing.Size(112, 16);
             this.label3.TabIndex = 17;
             this.label3.Text = "Observaciones";
             // 
@@ -377,7 +408,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(18, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.Size = new System.Drawing.Size(69, 16);
             this.label2.TabIndex = 16;
             this.label2.Text = "Telefono";
             // 
@@ -388,7 +419,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(18, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
+            this.label1.Size = new System.Drawing.Size(62, 16);
             this.label1.TabIndex = 15;
             this.label1.Text = "Nombre";
             // 
@@ -402,51 +433,34 @@
             this.dgvLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLista.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLista.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLista.Location = new System.Drawing.Point(0, 0);
             this.dgvLista.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLista.MultiSelect = false;
             this.dgvLista.Name = "dgvLista";
-            // no es esta
-            this.dgvLista.ReadOnly = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvLista.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLista.Size = new System.Drawing.Size(672, 196);
             this.dgvLista.TabIndex = 1;
-            // 
-            // membresiaBindingSource1
-            // 
-            this.membresiaBindingSource1.DataMember = "membresia";
-            this.membresiaBindingSource1.DataSource = this.dsGimnasio;
-            // 
-            // dsGimnasio
-            // 
-            this.dsGimnasio.DataSetName = "dsGimnasio";
-            this.dsGimnasio.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // membresiaBindingSource
-            // 
-            this.membresiaBindingSource.DataMember = "membresia";
-            this.membresiaBindingSource.DataSource = this.dsGimnasio;
             // 
             // vwmembresiasBindingSource
             // 
@@ -460,6 +474,18 @@
             // membresiaTableAdapter
             // 
             this.membresiaTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnHistorial
+            // 
+            this.btnHistorial.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorial.Location = new System.Drawing.Point(127, 395);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(155, 27);
+            this.btnHistorial.TabIndex = 22;
+            this.btnHistorial.Text = "+ Ver historial de ingreso";
+            this.btnHistorial.UseVisualStyleBackColor = false;
             // 
             // FrmMembresia
             // 
@@ -483,13 +509,13 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.membresiaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsGimnasio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.membresiaBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membresiaBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsGimnasio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membresiaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwmembresiasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -529,5 +555,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEditarFecha;
+        private System.Windows.Forms.Button btnHistorial;
     }
 }

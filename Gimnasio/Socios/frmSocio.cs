@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Net.Http;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Gimnasio.Socios
@@ -327,10 +328,97 @@ namespace Gimnasio.Socios
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                txtNombre.Focus();
                 e.Handled = true;
+                string dni = txtClave.Text.Trim();
+
+                if (id <= 0 && dni.Length == 8 && dni.All(char.IsDigit))
+                {
+                    BuscarDni(dni);
+                }
+
+                txtNombre.Focus();
             }
         }
+        private void BuscarDni(string dni)
+        {
+            const string TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImtldmluX2pob0BvdXRsb29rLmNvbSJ9.6_120ZyRlI2CTqDBuptlGZy1GhmwQt9zxpBlseiwoUY";
+            string url = "https://dniruc.apisperu.com/api/v1/dni/" + dni + "?token=" + TOKEN;
+
+            try
+            {
+                using (System.Net.WebClient wc = new System.Net.WebClient())
+                {
+                    wc.Encoding = System.Text.Encoding.UTF8;
+                    string json = wc.DownloadString(url);
+
+                    string nombres = ExtraerValorJson(json, "nombres");
+                    string paterno = ExtraerValorJson(json, "apellidoPaterno");
+                    string materno = ExtraerValorJson(json, "apellidoMaterno");
+
+                    if (!string.IsNullOrEmpty(nombres))
+                    {
+                        txtNombre.Text = nombres;
+                        txtPaterno.Text = paterno;
+                        txtMaterno.Text = materno;
+                    }
+                    else
+                    {
+                        MessageBox.Show("DNI no encontrado en RENIEC.", "Aviso",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (System.Net.WebException wex)
+            {
+                MessageBox.Show("Sin conexión o API no disponible. Ingresa los datos manualmente.\n" + wex.Message,
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar DNI: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Extrae el valor de una clave JSON de forma simple, sin librerías externas
+        private string ExtraerValorJson(string json, string clave)
+        {
+            string buscar = "\"" + clave + "\":\"";
+            int inicio = json.IndexOf(buscar);
+            if (inicio < 0) return "";
+            inicio += buscar.Length;
+            int fin = json.IndexOf("\"", inicio);
+            if (fin < 0) return "";
+            string valor = json.Substring(inicio, fin - inicio).Trim();
+            return DecodificarUnicode(valor);
+        }
+
+        private string DecodificarUnicode(string texto)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            int i = 0;
+            while (i < texto.Length)
+            {
+                if (i + 5 < texto.Length &&
+                    texto[i] == '\\' && texto[i + 1] == 'u')
+                {
+                    string hex = texto.Substring(i + 2, 4);
+                    int codigo;
+                    if (int.TryParse(hex,
+                        System.Globalization.NumberStyles.HexNumber,
+                        null, out codigo))
+                    {
+                        sb.Append((char)codigo);
+                        i += 6;
+                        continue;
+                    }
+                }
+                sb.Append(texto[i]);
+                i++;
+            }
+            return sb.ToString();
+        }
+
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
